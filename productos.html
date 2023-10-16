@@ -93,72 +93,50 @@
 
 
 <div>
+  <div class="mt-5">
+    <div class="floating-card">
+      <div class="card-body p-3 text-center">
+        <h5 class="card-title">Carrito</h5>
+        <h2 id="envio-gratis"></h2>
 
-    <div class="mt-5">
-      <div class="floating-card">
-        <div class="card-body p-3 text-center">
-          <h5 class="card-title">Carrito</h5>
-          <h2 id="envio-gratis"></h2>
-    
-          <ul id="carrito"></ul>
-    
-          <h6>SubTotal: <span id="total-carrito">$0.00</span></h6>
-          <div id="precio-cuota"></div>
-          <h6>Total: <span id="total-con-descuento">$0.00</span></h6>
-          <div>
-            <label for="opciones-pago">Opciones de pago:</label>
-            <select class="form-control" id="opciones-pago">
-              <option value="efectivo">Efectivo (10% de descuento)">Efectivo (10% de descuento)</option>
-              <option value="Transferencia (10% de descuento)">Transferencia (10% de descuento)</option>
-              <option  value="Tarjeta de crédito(60% de interés)">Tarjeta de crédito(60% de interés)</option>
-            </select>
-            <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  
-                </div>
-               
-               
-            </form>
-           
-            <div class="p-2">
-                <button class="btn btn-dark " id="finalizar-btn">Finalizar Compra</button>
+        <ul id="carrito"></ul>
+
+        <h6>SubTotal: <span id="total-carrito">$0.00</span></h6>
+        <div id="precio-cuota"></div>
+        <h6>Total: <span id="total-con-descuento">$0.00</span></h6>
+        <div>
+          <label for="opciones-pago">Opciones de pago:</label>
+          <select class="form-control" id="opciones-pago">
+            <option value="efectivo">Efectivo (10% de descuento)</option>
+            <option value="transferencia">Transferencia (10% de descuento)</option>
+            <option value="tarjeta">Tarjeta de crédito (60% de interés)</option>
+          </select>
+          <form class="row g-3 needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+              <div class="invalid-feedback">
+                Por favor, ingresa una dirección de correo electrónico válida.
+              </div>
             </div>
-            
-          </div>
-    <div class="m-2">
-         <h6 id="mensaje"></h6>
-    </div>
          
-
+          <div class="p-2">
+            <button type="submit" class="btn btn-dark" id="finalizar-btn">Finalizar Compra</button>
+            </form>
+          </div>
+        </div>
+        <div class="m-2">
+          <h6 id="mensaje"></h6>
         </div>
       </div>
     </div>
-    
-  
-    
-    <script>
-      const finalizarBtn = document.getElementById('finalizar-btn');
-      finalizarBtn.addEventListener('click', function () {
-        const mensaje = '¡Felicidades... Compra finalizada!, pronto te llegará un mail con los datosde de la compra.';
-        const mensajeElement = document.getElementById('mensaje');
-        mensajeElement.textContent = mensaje;
-      });
-    </script>
-
+  </div>
 </div>
-     
-        
-        
-      
-    <!-- Navbar End -->
 
 
-    <!-- Hero Start -->
-  
-    <!-- Hero End -->
-    
+
+
+ 
 
 
     

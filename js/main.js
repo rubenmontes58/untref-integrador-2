@@ -1,10 +1,8 @@
-//codigo del ecommerce
-
-//Inicializamos el local storage
+// Inicializamos el local storage
 let productosSeleccionados =
 	JSON.parse(localStorage.getItem("productosSeleccionados")) || [];
 let total = 0;
-//iniciamos el fetch a la api
+// Iniciamos el fetch a la api
 fetch("https://zmszgmmzcdolvhbxrskm.supabase.co/rest/v1/untref?select=*", {
 	headers: {
 		apikey:
@@ -17,7 +15,7 @@ fetch("https://zmszgmmzcdolvhbxrskm.supabase.co/rest/v1/untref?select=*", {
 	.then((data) => {
 		console.log(data);
 		const listaProductos = data.map((producto) => {
-			//Imprimimos la vista de la card con los botones
+			// Imprimimos la vista de la card con los botones
 			return `
 
 
@@ -139,7 +137,7 @@ fetch("https://zmszgmmzcdolvhbxrskm.supabase.co/rest/v1/untref?select=*", {
 			actualizarCarrito();
 			guardarProductosSeleccionados();
 		}
-//funciones de descuento depende el metodo de pago
+		//funciones de descuento depende el metodo de pago
 		function calcularTotalConDescuento(pagoSeleccionado) {
 			let total = 0;
 			productosSeleccionados.forEach((producto) => {
@@ -164,7 +162,7 @@ fetch("https://zmszgmmzcdolvhbxrskm.supabase.co/rest/v1/untref?select=*", {
 
 			totalConDescuentoElement.textContent = `$${totalConDescuento.toFixed(2)}`;
 		}
-			//funcion del carrito
+		//funcion del carrito
 		function actualizarCarrito() {
 			listaCarrito.innerHTML = "";
 			let total = 0;
@@ -223,3 +221,66 @@ fetch("https://zmszgmmzcdolvhbxrskm.supabase.co/rest/v1/untref?select=*", {
 
 		cargarProductosDesdeAlmacenamientoLocal();
 	});
+
+
+
+ const finalizarBtn = document.getElementById('finalizar-btn');
+ finalizarBtn.addEventListener('click', function() {
+   // Simulación del proceso de pago
+   simularPago()
+	 .then(function() {
+	   // Mostrar el mensaje de confirmación de compra
+	   const mensaje = '¡Felicidades... Compra finalizada!, pronto te llegará un mail con los datos de la compra.';
+	   const mensajeElement = document.getElementById('mensaje');
+	   mensajeElement.textContent = mensaje;
+	 })
+	 .catch(function(error) {
+	   // Mostrar el mensaje de error en caso de fallo en el pago
+	   const mensajeElement = document.getElementById('mensaje');
+	   mensajeElement.textContent = error;
+	 });
+ });
+ 
+ function simularPago() {
+   return new Promise(function(resolve, reject) {
+	 setTimeout(function() {
+	   const exito = Math.random() < 0.8; // 80% de probabilidad de éxito
+ 
+	   if (exito) {
+		 resolve();
+	   } else {
+		 reject('Lo sentimos, ha ocurrido un error en el pago. Por favor, inténtalo de nuevo.');
+	   }
+	 }, 3000); // Simulación de 3 segundos de tiempo de procesamiento
+   });
+ }
+
+ (function () {
+		"use strict";
+
+		// Obtenemos todos los formularios a validar
+		let forms = document.querySelectorAll(".needs-validation");
+
+		// Iteramos sobre los formularios y prevenimos el envío si no son válidos
+		Array.prototype.slice.call(forms).forEach(function (form) {
+			form.addEventListener(
+				"submit",
+				function (event) {
+					event.preventDefault(); // Prevenimos el envío del formulario
+
+					if (!form.checkValidity()) {
+						event.stopPropagation();
+						form.classList.add("was-validated");
+					} else {
+						
+
+						// Ejemplo: Mostrar un mensaje de éxito
+						let mensajeElement = document.getElementById("mensaje");
+
+						mensajeElement.classList.add("text-success");
+					}
+				},
+				false
+			);
+		});
+ })();
