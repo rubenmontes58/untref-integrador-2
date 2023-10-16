@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center mb-5">Carrito de Compras</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>SubTotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carrito">
+                        <!-- Aquí irán los productos agregados al carrito -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6 class="text-center mb-5">Opciones de Pago</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <select id="opciones-pago">
+                    <option value="efectivo">Efectivo 10% de descuento</option>
+                    <option value="transferencia">Transferencia 10% de descuento</option>
+                    <option value="tarjeta">Tarjeta de crédito(recargo)</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-dark py-2 px-4" id="finalizar-btn">Finalizar Compra</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6 id="mensaje"></h6>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
