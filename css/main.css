@@ -3899,17 +3899,5 @@ label {
       }
 
 @media (max-width: 991px) {
-  .floating-card {
-    position: static;
-   
-    width: 100%;
-    height: auto;
-    background-color: #f39c12;
-    border: 1px solid #2b2f32;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-    margin: 80px auto;
-    padding: 20px;
-  }
+
 }
